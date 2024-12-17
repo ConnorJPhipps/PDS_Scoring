@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 import argparse
 
-from numpy.distutils.mingw32ccompiler import rc_name
-
 NUM_ROWS = 100
 
 # Variables
