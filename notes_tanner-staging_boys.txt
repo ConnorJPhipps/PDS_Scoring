@@ -1,0 +1,79 @@
+# Derived from an SPSS script from Elizabeth Shirtcliff, Ron Dahl, and Karina Quevedo
+
+# Original variable names
+#       RAW
+#   peta: growth in height
+#   petb: growth of body hair
+#   petc: noticed skin changes
+#   petd: breasts begun to grow/deepening of voice
+#   mpete: male grow hair on face
+
+#       TRANSIENT
+#   adrenm: average of recoded petbm and pet cm
+#   adrenm2: adernal score for boys based on skin changes and public hair
+#   petam: recoded peta into five stages
+#   petdm: recoded petd into five stages
+#   gonadm: sum of petam and petdm
+#   gonadm2: gonadal score for boys based on growth spurt, deepening of voice and facial hair
+
+
+#       RESULT
+#   PDSS: PDDS scoring shirtcliff version
+#   PDSA: PD adrenal
+#   PDSG: PD gonadal
+
+# Original variable mapping (if any) [ORIG] | [MAP]
+
+# Recoded variable mappings with new variables (if any) [ORIG] | [MAP]
+# peta | petam: [1, 2, 3, 4]  |   [1, 3, 4, 5]
+# petb | petbm: [1, 2, 3, 4]  |   [1, 2, 3, 5]
+# petc | petcm: [1, 2, 3, 4]  |   [1, 2, 3, 4]
+# petd | petdm: [1, 2, 3, 4]  |   [1, 2, 3, 5]
+
+# adrenm: average of recoded petbm and pet cm
+# adrenm = mean(petbm, petcm)
+# if gender == 2: adrenm = 0
+
+# adrenm2 = nan
+# Table for if statements:
+#   adrenm  petcm   adrenm2
+#   1       -       1
+#   1.5     1       1
+#   1.5     2       2
+#   2       -       2
+#   2.5     NOT 4   2
+#   2.5     4       3
+#   3       -       3
+#   3.5     -       4
+#   4       -       4
+#   4.5     -       5
+#   5       -       5
+#   5.5     -       5
+
+# gonadm: sum of petam and petdm
+# gonadm = mean(petam, petdm)
+
+# gonadm2 = gonadm
+# Table for if statements:
+#   gonadm  mpete   petd    gonadm2
+#   1       1       -       1
+#   1       >1      -       2
+#   1.5     1       -       1
+#   1.5     >1      -       2
+#   2       1       1       1
+#   2       1       >1      2
+#   2       >1      -       3
+#   2.5     1       -       2
+#   2.5     >1      -       3
+#   3       -       -       3
+#   3.5     1       -       4
+#   3.5     2       -       4
+#   3.5     >2      -       5
+#   4       1       -       4
+#   4       2       -       4
+#   4       >2      -       5
+#   >4      -       -       5
+
+# PDSS = mean(donadm2, adrenm2, gonadf2, adrenf2)
+# PDSA = sum(adrenf2, adrenm2)
+# PDSG = sum(gonadf2, gonadm2)

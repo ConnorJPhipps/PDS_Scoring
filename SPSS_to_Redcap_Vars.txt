@@ -1,0 +1,18 @@
+# FEMALE
+#   peta: growth in height  :pq_pdms_height
+#   petb: growth of body hair   :pq_pdms_bodyhair
+#   petc: noticed skin changes  :pq_pdms_skin
+#   petd: breasts begun to grow/deepening of voice  :pq_pdms_f_breasts
+#   fpete: female begun to menstruate   :pq_pdms_f_mens_yn
+
+
+
+
+
+
+#   MALE
+#   peta: growth in height  :pq_pdms_height
+#   petb: growth of body hair   :pq_pdms_bodyhair
+#   petc: noticed skin changes  :pq_pdms_skin
+#   petd: breasts begun to grow/deepening of voice  :pq_pdms_m_voice
+#   mpete: male grow hair on face   :pq_pdms_m_facehair

@@ -1,0 +1,80 @@
+# Derived from an SPSS script from Elizabeth Shirtcliff, Ron Dahl, and Karina Quevedo
+
+# Original variable names
+#       RAW
+#   peta: growth in height
+#   petb: growth of body hair
+#   petc: noticed skin changes
+#   petd: breasts begun to grow
+#   fpete: female begun to menstruate
+
+#       TRANSIENT
+#   petaf: recoded peta into 5 stages
+#   petdf: recoded petd into five stages
+#   fpetef: recoded fpete
+#   adrenf2: adrenal score for girls based on skin changes and pubic hair
+#   gonadf: Sum of petaf and petdf
+
+#       RESULT
+#   PDSS: PDDS scoring shirtcliff version
+#   PDSA: PD adrenal
+#   PDSG: PD gonadal
+
+
+# Recoded variable mappings with new variables (if any) [ORIG] | [MAP]
+# peta | petaf: [1, 2, 3, 4]  |   [1, 2, 3, 5]
+# petb | petbf: [1, 2, 3, 4]  |   [1, 2, 4, 5]
+# petc | petcf: [1, 2, 3]     |   [1, 2, 4]
+
+
+# petd | petdf: [1, 2, 3, 4]  |   [1, 3, 4, 5]
+# fpete | fpetef: [1, 2]      |   [1, 5]
+
+
+# adrenf = mean(petbf, petcf)
+# if gender == 1: adrenf = 0
+
+# adrenf2: adrenal score for girls based on skin changes and pubic hair
+# adrenf2=adrenf
+# Table for if statements:
+#   petb    adrenf  adrenf2(Result)
+#   1       1.5     1
+#   2       1.5     2
+#   -       2       2
+#   -       2.5     3
+#   -       3       3
+#   -       3.5     4
+#   -       4       4
+#   -       4.5     5
+#   -       5       5
+#   -       5.5     5
+
+# gonadf = mean(petaf, detdf)
+# if gender ==1: gonadf = 0
+
+# gonadf2: gonadal score for girls based on growth spurt, breast development, and menarche
+# gonadf2=gonadf
+# Table for if statements:
+#   gonadf  petef   gonadf2
+#   1       1       1
+#   1.5     1       1
+#   2       1       2
+#   2.5     1       2
+#   3       1       2
+#   3.5     1       3
+#   4       1       3
+#   4.5     1       4
+#   5       1       4
+#   1       5       2
+#   1.5     5       3
+#   2       5       4
+#   2.5     5       4
+#   3       5       4
+#   3.5     5       5
+#   4       5       5
+#   4.5     5       5
+#   5       5       5
+
+# PDSS = mean(donadm2, adrenm2, gonadf2, adrenf2)
+# PDSA = sum(adrenf2, adrenm2)
+# PDSG = sum(gonadf2, gonadm2)
